@@ -27,9 +27,10 @@ class SurfboardClient
       @session.base_url = SERVICE_URL
       resp = @session.get(URI.escape(data), {"Cookie" => @auth_cookie})
 
-      if (resp.status == 200)
-        return resp.body
-      end
+      puts "send request", resp
+
+      return resp.body
+      
     end
   end
 
@@ -40,7 +41,11 @@ class SurfboardClient
 
     if (auth_token)
       @session.base_url = LOGIN_URL
+      
+      puts "Starting login"
+
       resp = @session.get("?auth=" + auth_token)
+	puts resp
       auth_cookie = resp.headers["Set-Cookie"]
 
       if (auth_cookie && auth_cookie[0][0,6] == "ACSID=")
@@ -52,8 +57,11 @@ class SurfboardClient
   def get_auth_token
     @session.base_url = AUTH_URL
     data = "accountType=GOOGLE&Email=#{@email}&Passwd=#{@password}&service=ah&source=#{@app_name}"
-    resp = @session.post("", data)
+    
+	puts "check 1", data
 
+    resp = @session.post("", data)
+	puts "check 2", resp
     resp.body.each_line do |line|
       if (line[0,5] == "Auth=")
         return (line[5, line.length - 1])
