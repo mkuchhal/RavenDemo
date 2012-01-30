@@ -1,7 +1,7 @@
 class ServerFactory
 
   SURFBOARD = SurfboardClient.new(
-      "mk@breaingwavesoftware.com",
+      "mk@breakingwavesoftware.com",
       "mk_bws123!",
       "Surfboard"
   )
