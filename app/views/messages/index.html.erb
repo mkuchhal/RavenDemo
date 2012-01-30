@@ -1,0 +1,33 @@
+<h1>Listing messages</h1>
+
+<table>
+  <tr>
+    <th>Messagetext</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Sendername</th>
+    <th>Recipientname</th>
+    <th>Sentat</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @messages.each do |message| %>
+  <tr>
+    <td><%= message.messagetext %></td>
+    <td><%= message.latitude %></td>
+    <td><%= message.longitude %></td>
+    <td><%= message.sendername %></td>
+    <td><%= message.recipientname %></td>
+    <td><%= message.sentat %></td>
+    <td><%= link_to 'Show', message %></td>
+    <td><%= link_to 'Edit', edit_message_path(message) %></td>
+    <td><%= link_to 'Destroy', message, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Message', new_message_path %>

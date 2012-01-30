@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  messagetext: MyText
+  latitude: 
+  longitude: 
+  sendername: MyString
+  recipientname: MyString
+  sentat: 2012-01-30 10:56:38
+
+two:
+  messagetext: MyText
+  latitude: 
+  longitude: 
+  sendername: MyString
+  recipientname: MyString
+  sentat: 2012-01-30 10:56:38
